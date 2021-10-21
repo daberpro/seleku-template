@@ -1,0 +1,100 @@
+
+#import {
+
+	cd
+
+} from "lib/cd.selekux"
+
+<div class="container">
+	
+	<p class="title">
+		seleku
+	</p>
+
+	<cd @id="card" props="nama"></cd>
+
+	<input id="input" value="user" type="text">
+		
+</div>
+
+<style>
+	
+	html,body{
+
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		height:  100%;
+		background: rgb(245,245,255);
+
+	}
+
+	.title{
+		font-size:12px;
+	}
+
+	body{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	
+	*{
+		font-family: sans-serif;
+		font-weight: 300;
+		box-sizing: border-box;
+	}
+
+	.container{
+		width: 400px;
+		height: auto;
+		box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+		background: white;
+		padding: 20px;
+	}
+
+	.container input{
+		outline:  none;
+		border: 1px solid rgba(0,0,0,0.25);
+		padding: 1rem;
+		width:  100%;
+		border-radius: 5px;
+	}
+
+</style>
+
+<script>
+	
+	// seleku dapat melakukan import es6
+	// dan memgambil semua library pihak ke 3
+	// maupun komponen di dalam folder lib tanpa perlu
+	// melakukan pengaturan lokasi file yang spesifik
+	import {sum} from "lib/math/sum.js";
+
+	// app.render merupakan fungsi untuk merender seleku component ke web
+	// dan fungsi render membutuhkan 1 argumen yang bertipe kan html element
+	// yang akan menjadi target render
+	app.render(document.body);
+
+	// mengambil tag input
+	const input = document.querySelector("#input");
+
+	// mencari component / element yang memiliki @id card
+	// dan mengupdate props nya dengan value dari input
+	find("card").state.nama = input.value;
+
+	// memberikan event ke pada input ketika megetik / menginput
+	// maka lakukan update props dari @id card dengan value dari input
+	input.oninput = ()=>{
+
+		find("card").state.nama = input.value;
+
+	}
+
+	// menampilkan fungsi penjumalahan dari lib/math/sum.js
+	// ke console
+	console.log(sum(90,70));
+
+</script>

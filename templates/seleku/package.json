@@ -1,0 +1,19 @@
+{
+  "name": "tester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "esbuild.config.js",
+  "scripts": {
+    "dev": "node esbuild.config.js --development",
+    "build": "node esbuild.config.js --build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@selekudev/compiler": "next",
+    "@selekudev/core": "next",
+    "@selekudev/selekuplugin": "next",
+    "esbuild": "^0.13.6",
+    "nodemon": "^2.0.13"
+  }
+}
